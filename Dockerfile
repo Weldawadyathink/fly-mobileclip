@@ -1,4 +1,8 @@
-FROM python:3.11 AS builder
+FROM alpine:latest AS downloader
+RUN apk add curl
+RUN curl https://docs-assets.developer.apple.com/ml-research/datasets/mobileclip/mobileclip_s0.pt -o /weights/mobileclip_s0.pt --create-dirs
+
+FROM python:3.13 AS builder
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
@@ -8,8 +12,9 @@ RUN pip install poetry
 RUN poetry config virtualenvs.in-project true
 COPY pyproject.toml poetry.lock ./
 RUN poetry install
-FROM python:3.11-slim
-RUN wget https://docs-assets.developer.apple.com/ml-research/datasets/mobileclip/mobileclip_s0.pt -P /weights
+
+FROM python:3.13-slim
+COPY --from=downloader /weights /weights
 WORKDIR /app
 COPY --from=builder /app/.venv .venv/
 COPY . .

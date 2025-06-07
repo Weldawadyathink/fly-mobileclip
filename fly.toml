@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for fly-mobileclip on 2025-06-07T21:55:00+02:00
+# fly.toml app configuration file generated for fly-mobileclip-s0 on 2025-06-07T22:32:58+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'fly-mobileclip'
+app = 'fly-mobileclip-s0'
 primary_region = 'cdg'
 
 [build]
@@ -11,7 +11,7 @@ primary_region = 'cdg'
 [http_service]
   internal_port = 8000
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = 'suspend'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
