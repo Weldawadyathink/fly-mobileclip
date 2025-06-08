@@ -9,10 +9,10 @@ import requests
 import time
 
 model, _, preprocess = mobileclip.create_model_and_transforms(
-    "${name}",
+    "${model_id}",
     pretrained="/weights/${weights_file}"
 )
-tokenizer = mobileclip.get_tokenizer("${name}")
+tokenizer = mobileclip.get_tokenizer("${model_id}")
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)

@@ -4,6 +4,7 @@
 
 # Generation Parameters
 # Name: ${name}
+# Model ID: ${model_id}
 # Fly Name: ${fly_name}
 # Weights File: ${weights_file}
 
@@ -26,5 +27,5 @@ wait_timeout = "10m"
 
 [[vm]]
   memory = '2gb'
-  cpu_kind = 'performance'
+  cpu_kind = 'shared'
   cpus = 1
