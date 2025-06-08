@@ -23,6 +23,6 @@ RUN poetry install
 FROM python:3.13-slim
 WORKDIR /app
 COPY --from=builder /app/.venv .venv/
-COPY . .
 COPY --from=downloader /weights/${weights_file} /weights/
+COPY . .
 CMD ["/app/.venv/bin/fastapi", "run"]

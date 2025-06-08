@@ -6,6 +6,7 @@
 # Name: ${name}
 # Model ID: ${model_id}
 # Fly Name: ${fly_name}
+# Fly Memory: ${fly_memory}
 # Weights File: ${weights_file}
 
 app = '${fly_name}'
@@ -26,6 +27,6 @@ wait_timeout = "10m"
     soft_limit = 200
 
 [[vm]]
-  memory = '2gb'
+  memory = '${fly_memory}'
   cpu_kind = 'performance'
   cpus = 1
