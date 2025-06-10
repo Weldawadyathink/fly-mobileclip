@@ -6,6 +6,7 @@
 # Name: ${name}
 # Model ID: ${model_id}
 # Fly Name: ${fly_name}
+# Fly CPU Kind: ${fly_cpu_kind}
 # Fly Memory: ${fly_memory}
 # Weights File: ${weights_file}
 
@@ -28,5 +29,5 @@ wait_timeout = "10m"
 
 [[vm]]
   memory = '${fly_memory}'
-  cpu_kind = 'performance'
+  cpu_kind = '${fly_cpu_kind}'
   cpus = 1
