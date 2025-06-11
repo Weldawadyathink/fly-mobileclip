@@ -14,10 +14,10 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 WORKDIR /app
 
-RUN pip install poetry
-RUN poetry config virtualenvs.in-project true
-COPY pyproject.toml poetry.lock ./
-RUN poetry install
+RUN python -m venv .venv
+RUN .venv/bin/pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+COPY requirements.txt .
+RUN .venv/bin/pip install -r requirements.txt
 
 
 FROM python:3.13-slim
