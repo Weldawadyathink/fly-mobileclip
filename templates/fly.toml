@@ -27,6 +27,14 @@ wait_timeout = "10m"
     type = "requests"
     soft_limit = 200
 
+[[http_service.checks]]
+  grace_period = "30s"
+  interval = "10s"
+  method = "GET"
+  timeout = "5s"
+  path = "/healthcheck"
+
+
 [[vm]]
   memory = '${fly_memory}'
   cpu_kind = '${fly_cpu_kind}'

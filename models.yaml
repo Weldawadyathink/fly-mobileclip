@@ -3,21 +3,21 @@
   model_id: mobileclip_s0
   fly_name: mobileclip-s0
   weights_file: mobileclip_s0.pt
-  fly_cpu_kind: shared
+  fly_cpu_kind: performance
   fly_memory: 2gb
 
 - name: mobileclip_s1
   model_id: mobileclip_s1
   fly_name: mobileclip-s1
   weights_file: mobileclip_s1.pt
-  fly_cpu_kind: shared
+  fly_cpu_kind: performance
   fly_memory: 2gb
 
 - name: mobileclip_s2
   model_id: mobileclip_s2
   fly_name: mobileclip-s2
   weights_file: mobileclip_s2.pt
-  fly_cpu_kind: shared
+  fly_cpu_kind: performance
   fly_memory: 2gb
 
 - name: mobileclip_b

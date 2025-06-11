@@ -57,6 +57,11 @@ class Input(BaseModel):
   inputs: str
 
 
+@app.get("/healthcheck")
+async def healthcheck():
+    return "Healthy!"
+
+
 @app.post("/predictions")
 async def predict(input: Input):
     print(f"Running predictions for {input.inputs}")
@@ -75,9 +80,3 @@ async def predict(input: Input):
     duration = time.perf_counter() - start_time
     print(f"Embedding completed in {duration: .1f} second")
     return returnval
-
-
-@app.get("/")
-async def hello_fly():
-    return 'hello from fly.io'
-
