@@ -14,7 +14,7 @@ app = '${fly_name}'
 primary_region = 'cdg'
 
 [deploy]
-wait_timeout = "10m"
+wait_timeout = "20m"
 
 [http_service]
   internal_port = 8000

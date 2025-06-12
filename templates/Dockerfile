@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED=1 \
 WORKDIR /app
 
 RUN python -m venv .venv
-RUN .venv/bin/pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+RUN .venv/bin/pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cpu
 COPY requirements.txt .
 RUN .venv/bin/pip install -r requirements.txt
 
@@ -25,4 +25,5 @@ WORKDIR /app
 COPY --from=builder /app/.venv .venv/
 COPY --from=downloader /weights/${weights_file} /weights/
 COPY . .
+EXPOSE 8000
 CMD ["/app/.venv/bin/fastapi", "run"]
