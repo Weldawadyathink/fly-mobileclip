@@ -23,7 +23,9 @@ print(f"🤖 Model loaded")
 
 def embedImageUrl(imageUrl):
     print(f"Downloading {imageUrl}")
-    image = Image.open(BytesIO(requests.get(imageUrl).content))
+    image = Image.open(BytesIO(requests.get(imageUrl, headers = {
+        "X-Tigris-Consistent": "true"
+    }).content))
     if image.mode in ('RGBA', 'LA', 'P'):
         image = image.convert('RGB')
     with torch.no_grad(), torch.cuda.amp.autocast():
