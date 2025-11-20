@@ -11,7 +11,7 @@
 # Weights File: ${weights_file}
 
 app = '${fly_name}'
-primary_region = 'cdg'
+primary_region = 'sjc'
 
 [deploy]
 wait_timeout = "20m"
